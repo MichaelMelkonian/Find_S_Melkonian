@@ -29,20 +29,20 @@ print(hypothesis)
 
 #find the first positive training data in db and assign it to the vector hypothesis
 ##--> add your Python code here
-for row in db:
-      if row[4] == "Yes":
-            hypothesis = row
+for row in db:    #traverse through database
+      if row[4] == "Yes":     #only look for first positive outcome row
+            hypothesis = row #set hypothesis to new row
             break
             
 
 #find the maximally specific hypothesis according to your training data in db and assign it to the vector hypothesis (special characters allowed: "0" and "?")
 ##--> add your Python code here
 
-for row in db:
-      for i in range(len(row)):
-            if row[4] == "Yes":
-                  if hypothesis[i] != row[i]:
-                        hypothesis[i] = "?"
+for row in db: #travresing through database (csv file)
+      for i in range(len(row)): #traversing through each row within the csv file
+            if row[4] == "Yes":    #if the result is positive, Yes, then we can look into row
+                  if hypothesis[i] != row[i]:   #make comparison with db row vs hypothesis row
+                        hypothesis[i] = "?"     #make adjustments to hypothesis row to make more accurate
                         
                   else:
                         continue
